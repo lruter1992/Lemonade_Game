@@ -45,10 +45,12 @@ public class GameManager : MonoBehaviour
 		currentDay++;
 	}
 	
+	
+	
     // Void Start is Event Begin Play
     void Start()
     {
-        InvokeRepeating(nameof(AutoLemon), 0.1f, speed);
+       // InvokeRepeating(nameof(AutoLemon), 0.1f, speed);
     }
 
     // Update is EventTick
@@ -75,6 +77,10 @@ public class GameManager : MonoBehaviour
 	void AutoLemon()
 	{
 		lemons = lemons + lemonMulti;
+	}
+	public void OnNextDayButtonClicked()
+	{
+		FindFirstObjectByType<DayController>().RunDay();
 	}
 	
 
