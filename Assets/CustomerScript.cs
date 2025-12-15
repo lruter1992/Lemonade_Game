@@ -22,7 +22,7 @@ public class CustomerScript : MonoBehaviour
 
     }
 
-    int CalculateSales()
+    public int CalculateSales()
     {
         int sales = Mathf.Max(customers - LemonadeCost,0);
         return sales;

@@ -16,6 +16,10 @@ public class GameManager : MonoBehaviour
 	public float speed = 0.1f;
 	public TMP_Text lemonCounterText;
 	public TMP_Text lemonadeCounterText;
+	public TMP_Text EODSales;
+	public TMP_Text EODCustomers;
+	public GameObject EODPanel;
+	private CustomerScript customerscript;
     // Void Start is Event Begin Play
 
     void Awake()
@@ -25,7 +29,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         InvokeRepeating(nameof(AutoLemon), 0.1f, speed);
-       
+        customerscript = GetComponent<CustomerScript>();
+
     }
 
     // Update is EventTick
@@ -51,7 +56,7 @@ public class GameManager : MonoBehaviour
 	
 	void AutoLemon()
 	{
-		lemons = lemons + lemonMulti;
+		//lemons = lemons + lemonMulti;
 	}
 
 	public void UpdatePriceFromInput()
@@ -66,6 +71,12 @@ public class GameManager : MonoBehaviour
 			Debug.LogWarning("Invalid price input!");
 		}
 	}
-	
+
+	public void StartDay()
+	{
+		EODPanel.SetActive(true);
+		EODSales.text = "Sales:" + customerscript.CalculateSales(); 
+		EODCustomers.text = "Customers:" + customers; //Customers Num
+	}
 
 }
