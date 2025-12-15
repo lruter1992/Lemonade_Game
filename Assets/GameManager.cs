@@ -36,8 +36,8 @@ public class GameManager : MonoBehaviour
     // Update is EventTick
     void Update()
     {
-		lemonCounterText.text = "lemons:" + lemons; //Update LemonText
-		lemonadeCounterText.text = "lemonade:" + lemonade; //Update LemonText
+		lemonCounterText.text =  lemons.ToString(); //Update LemonText
+		lemonadeCounterText.text = lemonade.ToString(); //Update LemonText
     }
 
     public void BuyLemons()
