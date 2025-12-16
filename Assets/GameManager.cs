@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 	public TMP_Text lemonadeCounterText;
 	public TMP_Text EODSales;
 	public TMP_Text EODCustomers;
+	public TMP_Text[] pricetext;
 	public Button makeLemonadeButton;
 	public GameObject EODPanel;
 	private CustomerScript customerscript;
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
 		lemonCounterText.text =  lemons.ToString(); //Update LemonText
 		lemonadeCounterText.text = lemonade.ToString(); //Update LemonText
 		UpdateLemonButton();
+		UpdatePriceText();
     }
 
     public void BuyLemons()
@@ -91,6 +93,14 @@ public class GameManager : MonoBehaviour
 		else
 		{
 			makeLemonadeButton.interactable = false;
+		}
+	}
+
+	public void UpdatePriceText()
+	{
+		foreach (TMP_Text text in pricetext)
+		{
+			text.text = "Price: ¥" + cost.ToString();
 		}
 	}
 
