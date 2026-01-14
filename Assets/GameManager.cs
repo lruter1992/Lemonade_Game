@@ -78,9 +78,10 @@ public class GameManager : MonoBehaviour
 
 	public void StartDay()
 	{
+		int newCustomers = Random.Range(0, 100);
 		EODPanel.SetActive(true);
 		EODSales.text = "Sales:" + customerscript.CalculateSales(); 
-		EODCustomers.text = "Customers:" + customers; //Customers Num
+		EODCustomers.text = "Customers:" + newCustomers; //Customers Num
 	}
 
 	void UpdateLemonButton()
